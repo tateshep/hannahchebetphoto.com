@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class='container'>
+    <h1>My Collections</h1>
+    {% for collection in collection_list %}
+            
+        <section class="gallery-section">
+        <a href="{% url 'gallery:collection_detail' collection.id %}"><h2 class="collection-title">{{ collection.title | upper | wordwrap:30 }}</h2></a>
+            <div class="carousel ">
+                {% for image in collection.images.all %}
+
+                    <a class="carousel-item" href="{% url 'gallery:image_detail' image.id%}">
+                        <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
+                    </a>
+                    
+                {% endfor %}
+            </div>
+        </section>
+        <h1>Download Images</h1>
+        <div class="my-collections-div">
+
+            <ul class="collection my-collection">
+                {% for image in collection.images.all %}
+                <li class="collection-item avatar">
+                    <img src="{{ MEDIA_URL }}{{ image.photo}}" alt="" class="circle">
+                    <span class="title">{{ image.title }}</span>
+                    <p> <a class="right" href="{% url 'userprofile:download' image.id %}">Download <i style="position:relative;top:6px;"class="material-icons">file_download</i></a></p>
+                </li>
+                {% endfor%}
+            </ul>
+        </div>
+        
+    {% endfor %}
+
+</div class='container'>
+
+{% endblock content %}
+{% block js %}
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems);
+    });
+    </script>
+{% endblock %}

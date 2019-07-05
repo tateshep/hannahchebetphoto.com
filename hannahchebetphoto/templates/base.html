@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HANNAH CHEBET PHOTO</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  </head>
+  <body>
+
+<div class="mobile-nav fixed">
+  <nav style="display:flex;">
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <div >
+      <h4 style="text-align:center" class="mobile-header">HANNAH CHEBET PHOTO</h4>  
+    </div>
+  </nav>
+
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+      <div class="">
+       <a href="{% url 'home:index'%}">
+        <h3 class="mobile-header">HANNAH CHEBET PHOTO</h3>
+       </a> 
+      </div>
+    </div></li>
+    {% if user.is_authenticated %}
+    <li><a href="#name"><span class="name">Welcome back {{ user }}</span></a></li>
+    {% endif %}
+  
+    <li><div class="divider"></div></li>
+    <li><a class="waves-effect" href="{% url 'gallery:gallery' %}">View Gallery</a></li>
+    <li><a class="waves-effect " href="{% url 'blog:index' %}">Blog</a></li>
+    <li><a class="waves-effect" href="{% url 'sendemail:contact' %}">Contact</a></li>
+    {% if user.is_authenticated %}
+        {% if request.user.is_superuser %}
+        <li>
+          <a class="waves-effect navbar-link " href="{% url 'gallery:new' %}">Add Image</a>
+        </li>
+
+        
+        {% endif %}
+      <li>
+        <a class="waves-effect navbar-link " href="{% url 'userprofile:my_collections' %}">View My Collections</a>
+      </li>
+        {% if request.user.is_superuser %}
+          <li>
+              <a class="navbar-link waves-effect waves-light btn " href="{% url 'home:admin_view' %}">Admin</a>
+            </li>
+        {% endif %}
+      <li>
+        <a class="waves-effect navbar-link waves-effect waves-light btn" href="{% url 'logout' %}">logout</a>
+      </li>
+      {% else %}
+      <li>
+        <a class="waves-effect navbar-link waves-effect waves-light btn auth-btn" href="{% url 'login' %}">Login</a>
+      </li>
+      <li>
+          <a class="waves-effect navbar-link waves-effect waves-light btn auth-btn" href="{% url 'userprofile:signup' %}">Sign Up</a>
+      </li>
+      {% endif %}
+  </ul>
+        
+</div>
+
+  <div class="navbar-fixed desktop-nav">
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+            <a class="brand-logo" href="{% url 'home:index'%}"><h4>HANNAH CHEBET PHOTO</h4></a>
+            <!-- {% if user.is_authenticated %}
+            <h4 class="welcome-header hide-on-med-and-down">Welcome back {{ user }}</h4> 
+            {% endif %} -->
+              <ul id="" class="right">
+                    
+                <li>
+                  <a class="navbar-link " href="{% url 'gallery:gallery' %}">View Gallery</a>
+                </li>
+                <li>
+                  <a class="navbar-link " href="{% url 'blog:index' %}">Blog</a>
+                </li>
+                <li>
+                  <a class="navbar-link " href="{% url 'sendemail:contact' %}">Contact</a>
+                </li>
+                {% if user.is_authenticated %}
+                  
+                <li>
+                  <a class="navbar-link " href="{% url 'userprofile:my_collections' %}">View My Collections</a>
+                </li>
+                {% if request.user.is_superuser %}
+                  <li>
+                    <a class="navbar-link waves-effect waves-light btn " href="{% url 'gallery:new' %}">Add Image</a>
+                  </li>
+                  <li>
+                    <a class="navbar-link waves-effect waves-light btn " href="{% url 'home:admin_view' %}">Admin</a>
+                  </li>
+                  {% endif %}
+                <li>
+                  <a class="navbar-link waves-effect waves-light btn" href="{% url 'logout' %}">logout</a>
+                </li>
+                {% else %}
+                <li>
+                  <a class="navbar-link waves-effect waves-light btn auth-btn" href="{% url 'login' %}">Login</a>
+                </li>
+                <li>
+                    <a class="navbar-link waves-effect waves-light btn auth-btn" href="{% url 'userprofile:signup' %}">Sign Up</a>
+                </li>
+                {% endif %}
+              </ul>
+          </div>
+        
+    </nav>
+  </div>
+
+            {% block content %}
+            {% endblock content %}
+
+
+    <section id="theme-switch-section">
+      <div class="theme-switch-div">
+      <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="my-slider round">
+      </div>
+      </label>
+      <span id="theme-text" style=""></span>
+      </div>
+    </section>
+
+      <footer>
+        <div class="container">
+          <div class="footer-grid">
+            <section class="footer-grid-section-1">
+              <h1>More Info</h1>
+              <ul>
+                <li><a>About</a></li>
+                <li><a>Pricing</a></li>
+                <li><a>Privacy Policy</a></li>
+              </ul>
+            </section>
+
+            <section class="footer-grid-section-2"> 
+            <h1>Connect</h1>
+
+              <ul>
+                <li><a>Sign Up</a></li>
+                <li><a>Contact</a></li>
+                <li><a>Blog</a></li>
+              </ul>
+            </section>
+
+            <section class="footer-grid-section-3">
+            <h1>Social</h1>
+
+              <ul>
+                <li><a>Facebook</a></li>
+                <li><a>Instagram</a></li>
+                <li><a>Twitter</a></li>
+              </ul>
+            </section>
+          </div>
+        
+        </div>
+      </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static '/scripts/toggle.js' %}"></script>
+    <!-- <script src="{% static '/scripts/rightClickProtect.js' %}"></script> -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+      });
+    
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+      });
+    </script>
+
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>

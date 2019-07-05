@@ -1,0 +1,125 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+<!-- <aside class="admin-aside z-depth-1">
+    <div class="admin-aside-div">
+            <a href="#!" class="">Images</a>
+            <a href="#!" class="">Collections</a>
+            <a href="#!" class="">Blog Posts</a>
+            <a href="#!" class="">Users</a>
+    </div>
+
+</aside> -->
+<div class="admin-container ">
+    <main class="container">
+        <h1>Admin View</h1>
+
+    <ul class="collapsible popout">
+
+        <li>
+        <div class="collapsible-header">
+            <h2><a href="{% url 'blog:blog_create' %}" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>  Blog Posts </h2>
+        </div>
+
+            <div class="collapsible-body">
+                <ul class="collection">
+                    {% for post in blogpost_list %}
+                    <li class="collection-item">
+                    <span class="title">{{ post.title }}</span>
+
+                    <a class="right" href="{% url 'blog:blog_delete' post.id %}"><i style="position:relative;top:6px;"class="material-icons">delete</i></a>
+                    <a class="right" href="{% url 'blog:blog_update' post.id %}"><i style="position:relative;top:6px;"class="material-icons">edit</i></a>
+                    <a class="right" href="{% url 'blog:blog_detail' post.id %}"><i style="position:relative;top:6px;"class="material-icons">visibility</i></a>
+
+                    </li> 
+                    {% endfor %}
+                </ul>
+            </div>
+        </li>
+
+        <li>
+            <div class="collapsible-header">
+                <h2> <a href="{% url 'gallery:collection_create' %}" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>  Collections</h2>
+            </div>
+
+            <div class="collapsible-body">
+                <ul class="collection">
+                {% for item in collection_list %}
+                <li class="collection-item">
+                    <span class="title">{{ item.title }}</span>
+                    
+                    <a class="right" href="{% url 'gallery:collection_delete' item.id %}"><i style="position:relative;top:6px;"class="material-icons">delete</i></a>
+                    <a class="right" href="{% url 'gallery:collection_update' item.id %}"><i style="position:relative;top:6px;"class="material-icons">edit</i></a>
+                    <a class="right" href="{% url 'gallery:collection_detail' item.id %}"><i style="position:relative;top:6px;"class="material-icons">visibility</i></a>
+                    
+                </li> 
+                    {% endfor %}
+                </ul>
+            </div>
+        </li>
+
+        <li>
+            <div class="collapsible-header">
+                <h2><a href="{% url 'gallery:new' %}" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                  Images</h2> 
+            </div>
+
+            <div class="collapsible-body">
+                <ul class="collection">
+                {% for image in image_list %}
+                <li class="collection-item avatar">
+                    <img src="{{ MEDIA_URL }}{{ image.photo}}" alt="" class="circle">
+                    <span class="title">{{ image.title }}</span>
+                    <p>
+                    <a class="right" href="{% url 'gallery:delete_image' image.id %}"><i style="position:relative;top:6px;"class="material-icons">delete</i></a>
+                    <a class="right" href="{% url 'gallery:image_update' image.id %}"><i style="position:relative;top:6px;"class="material-icons">edit</i></a>
+                    <a class="right" href="{% url 'gallery:image_detail' image.id %}"><i style="position:relative;top:6px;"class="material-icons">visibility</i></a>
+                    </p>
+                </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </li>
+
+        <li>
+            <div class="collapsible-header">
+                <h2>
+                    <!-- <a href="{% url 'userprofile:signup' %}" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>   -->
+                    Users</h2>
+            </div>
+            <div class="collapsible-body">
+                <ul class="collection">
+                {% for user in user_list %}
+                <li class="collection-item">
+                    <span class="title">{{ user.username }}</span>
+                    
+                  <!-- <a class="right" href=""><i style="position:relative;top:6px;"class="material-icons">delete</i></a>
+                    <a class="right" href=""><i style="position:relative;top:6px;"class="material-icons">edit</i></a>
+                    <a class="right" href=""><i style="position:relative;top:6px;"class="material-icons">visibility</i></a> 
+                     -->
+                </li> 
+                    {% endfor %}
+                </ul>
+            </div>
+        </li>
+       
+
+
+    </ul>
+    </main>
+</div>
+<br class= "clear-fix">
+
+
+{% endblock content%}
+{% block js %}
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems);
+  });
+</script>
+ 
+{% endblock %}
