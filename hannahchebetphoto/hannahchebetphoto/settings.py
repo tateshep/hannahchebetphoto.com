@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'photova.urls'
+ROOT_URLCONF = 'hannahchebetphoto.urls'
 
 TEMPLATES = [
     {
@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'photova.wsgi.application'
+WSGI_APPLICATION = 'hannahchebetphoto.wsgi.application'
 
 
 # Database

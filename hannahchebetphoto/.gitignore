@@ -123,4 +123,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Photova files
+# Hannahchebetphoto files
+/hannahchebetphoto/media
+/hannahchebetphoto/data
+/hannahchebetphoto/db.sqlite3
