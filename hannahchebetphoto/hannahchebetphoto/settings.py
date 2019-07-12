@@ -27,8 +27,10 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'tateshep.pythonanywhere.com',
+    # 'tateshep.pythonanywhere.com',
+    '0.0.0.0',
     'localhost',
+    'mysterious-shelf-56146.herokuapp.com'
 ]
 
 
@@ -147,7 +149,7 @@ SITE_ID = 1
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 MEDIA_URL = '/data/'
