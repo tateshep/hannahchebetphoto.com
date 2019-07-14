@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import dj-database-url
+import dj_database_url
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -109,8 +109,8 @@ DATABASES = {
     }
 }
 
-# for dj_database_url
-db_from_env = dj_database_url.config(conn_max=600)
+# for dj_database_url conn_max=600
+db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
 
