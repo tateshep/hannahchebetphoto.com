@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="container">
+    <h1>Collection Update: {{ collection }}</h1>
+    <form action="" method="post">
+          
+        {% csrf_token %}
+        
+        <p>
+            <label for="">Title</label>
+            {{ form.title }}
+        </p>
+
+        <p>
+            <label for="">Description</label>
+            {{ form.description }}
+        </p>
+         <p>
+            <label for="">Add Images</label>
+            {{ form.images }}
+        </p>
+       
+         <p>
+            <label>
+            {{ form.showcase_gallery }}
+            <span>Showcase Gallery?</span>
+            </label>
+        </p>
+          <p>
+            <label for="">Permitted Users
+            
+            </label>
+            {{ form.permitted_users }}
+        </p>
+
+        <input class="right waves-effect waves-light btn" type="submit" value="Update">
+        <a class="waves-effect waves-light btn right deep-orange darken-4" href="{% url 'gallery:gallery' %}">Cancel</a>
+
+        <br class="clear-fix">
+    </form>
+</div>
+{% endblock content %}

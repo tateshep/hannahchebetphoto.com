@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="container">
+    <h1>Add Image</h1>
+    <form enctype="multipart/form-data" action="" method="post">
+        
+
+        {% csrf_token %}
+                <p>
+                    <label for="">Title</label>
+                    {{ form.title }}
+                </p>
+
+                <p>
+                    <label class=" custom-file-upload" for="">Add Image
+                        {{ form.photo }}
+                    </label>
+                </p>
+            
+
+                <input class="right waves-effect waves-light btn" type="submit" value="Create">
+                <a class="waves-effect waves-light btn right deep-orange darken-4" href="{% url 'gallery:gallery' %}">Cancel</a>
+
+    </form>
+
+</div>
+{% endblock content%}
+
+{% block js %}
+
+{% endblock %}

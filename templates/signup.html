@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="container">
+        <h2>User Signup</h2>
+    <form action="" method="post">
+
+
+            {% csrf_token %}
+            {{ form.as_p }}    
+            <input class="waves-effect waves-light btn" type="submit" value="Sign Up">
+                <a class="waves-effect waves-light btn deep-orange darken-4" href="{% url 'gallery:gallery' %}">Cancel</a>
+
+        </form>
+
+</div>
+
+
+
+{% endblock content %}
