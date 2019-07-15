@@ -109,7 +109,8 @@ DATABASES = {
     }
 }
 
-# for dj_database_url conn_max=600
+# for dj_database_url 
+#  belongs in the config input below: conn_max=600
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
