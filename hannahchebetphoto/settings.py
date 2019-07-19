@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     # 'tateshep.pythonanywhere.com',
     '0.0.0.0',
     'localhost',
-    'mysterious-shelf-56146.herokuapp.com'
+    '.herokuapp.com'
 ]
 
 
