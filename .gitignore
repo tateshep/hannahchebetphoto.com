@@ -90,6 +90,8 @@ pipenv
 #   install all needed dependencies.
 Pipfile.lock
 Pipfile
+
+# Mac and VScode
 .DS_Store
 .vscode
 
