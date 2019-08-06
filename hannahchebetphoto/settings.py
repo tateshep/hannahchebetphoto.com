@@ -27,14 +27,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG_VALUE")
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
     'localhost',
     '.herokuapp.com'
 ]
-
 
 # Application definition
 
@@ -154,25 +153,27 @@ USE_TZ = True
 
 # if os.environ.get('DJANGO_ENV') == 'production':
 #     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#     STATIC_URL = '/static/'
+    # STATIC_URL = '/static/'
 #     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# if os.environ.get('DJANGO_ENV') == 'local':
-#     STATIC_ROOT = ''
-#     STATIC_URL = '/static/'
-#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#     # Does not work in the local environment
+#         os.path.join(BASE_DIR, "static"),
+#     ]
 
+if os.getenv("DJANGO_ENV") == 'local':
+    print('getenv working')
+    # STATIC_URL = '/static/'
+    # STATIC_ROOT = 'static'
+
+STATIC_URL = '/' +  BASE_DIR + '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 SITE_ID = 1
 
 MEDIA_URL = '/data/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'data/')
 
-STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home:index'
 LOGOUT_REDIRECT_URL = 'home:index'
