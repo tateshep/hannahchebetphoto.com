@@ -27,10 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG_VALUE")
 
 ALLOWED_HOSTS = [
-    # 'tateshep.pythonanywhere.com',
     '0.0.0.0',
     'localhost',
     '.herokuapp.com'
@@ -153,22 +152,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-if os.environ.get('DJANGO_ENV') == 'production':
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# if os.environ.get('DJANGO_ENV') == 'production':
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#     STATIC_URL = '/static/'
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-if os.environ.get('DJANGO_ENV') == 'local':
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# if os.environ.get('DJANGO_ENV') == 'local':
+#     STATIC_ROOT = ''
+#     STATIC_URL = '/static/'
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
 SITE_ID = 1
 
-STATIC_URL = '/static/'
-
-
 MEDIA_URL = '/data/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'data/')
 
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home:index'
 LOGOUT_REDIRECT_URL = 'home:index'
