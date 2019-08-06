@@ -160,13 +160,20 @@ USE_TZ = True
 #         os.path.join(BASE_DIR, "static"),
 #     ]
 
-if os.getenv("DJANGO_ENV") == 'local':
-    print('getenv working')
-    # STATIC_URL = '/static/'
-    # STATIC_ROOT = 'static'
+# if os.getenv("DJANGO_ENV") == 'local':
+#     print('getenv working')
+#     print(os.getenv("DJANGO_ENV"))
+#     STATIC_URL = '/static/'
+#     # STATIC_ROOT = 'static'
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-STATIC_URL = '/' +  BASE_DIR + '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_URL = '/static/'
+
 
 SITE_ID = 1
 
