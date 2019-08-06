@@ -151,6 +151,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
+# none of the below seems to be working
+
 # if os.environ.get('DJANGO_ENV') == 'production':
 #     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     # STATIC_URL = '/static/'
@@ -190,6 +193,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
