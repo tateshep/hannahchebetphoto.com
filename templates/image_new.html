@@ -1,11 +1,10 @@
 {% extends 'base.html' %} 
-
+{% load static %}
 {% block content %}
 <div class="container">
     <h1>Add Image</h1>
     <form enctype="multipart/form-data" action="" method="post">
         
-
         {% csrf_token %}
                 <p>
                     <label for="">Title</label>
@@ -13,12 +12,11 @@
                 </p>
 
                 <p>
-                    <label class=" custom-file-upload" for="">Add Image
+                    <label class="custom-file-upload" for="">Add Image
                         {{ form.photo }}
                     </label>
                 </p>
-            
-
+        
                 <input class="right waves-effect waves-light btn" type="submit" value="Create">
                 <a class="waves-effect waves-light btn right deep-orange darken-4" href="{% url 'gallery:gallery' %}">Cancel</a>
 
@@ -28,5 +26,18 @@
 {% endblock content%}
 
 {% block js %}
+    <!--<script src="{% static '/scripts/s3FileUpload .js' %}"></script>
+    // JS to interact with Amazon S3 for file upload
 
+    (function()  {
+        document.getElementById("file_input").onchange = function (){
+            var files = document.getElementById("file_input").files;
+            var file = files[0];
+            if(!file){
+                return alert("No file selected. Try again.");
+            }
+            getSignedRequest(file);
+        };
+    })();
+    -->
 {% endblock %}

@@ -4,7 +4,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>HANNAH CHEBET PHOTO</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -12,7 +11,6 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
   </head>
   <body>
 
@@ -20,7 +18,7 @@
   <nav style="display:flex;">
   <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <div >
-      <h4 style="text-align:center" class="mobile-header">HANNAH CHEBET PHOTO</h4>  
+      <h4 style="text-align:center" class="mobile-header">HANNAH CHEBET</h4>  
     </div>
   </nav>
 
@@ -46,7 +44,6 @@
           <a class="waves-effect navbar-link " href="{% url 'gallery:new' %}">Add Image</a>
         </li>
 
-        
         {% endif %}
       <li>
         <a class="waves-effect navbar-link " href="{% url 'userprofile:my_collections' %}">View My Collections</a>
@@ -118,10 +115,8 @@
         
     </nav>
   </div>
-
             {% block content %}
             {% endblock content %}
-
 
     <section id="theme-switch-section">
       <div class="theme-switch-div">
@@ -169,7 +164,6 @@
         
         </div>
       </footer>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{% static '/scripts/toggle.js' %}"></script>
