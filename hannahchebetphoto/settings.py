@@ -27,7 +27,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+if os.getenv("DJANGO_ENV") == 'production':
+    DEBUG = False
+
+if os.getenv("DJANGO_ENV") == 'local':
+    DEBUG = True
+
+# DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
@@ -154,7 +161,7 @@ USE_TZ = True
 
 # none of the below seems to be working
 
-# if os.environ.get('DJANGO_ENV') == 'production':
+# if os.getenv.get('DJANGO_ENV') == 'production':
 #     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     # STATIC_URL = '/static/'
 #     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -193,7 +200,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
-
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_S3_FILE_OVERWRITE = False
