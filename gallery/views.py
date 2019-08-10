@@ -90,11 +90,9 @@ class NewImage(PermissionRequiredMixin, CreateView):
         else:
             return self.form_invalid(form)
 
-
 class ImageDetail(DetailView):
     model = Image
     template_name = 'image_detail.html'
-
 
 class ImageUpdate(PermissionRequiredMixin, UpdateView):
         # only staff users may use 
@@ -103,7 +101,6 @@ class ImageUpdate(PermissionRequiredMixin, UpdateView):
     model = Image
     template_name = 'image_update.html'
     fields = ['title','author','photo']
-
 
 class ImageDelete(PermissionRequiredMixin, DeleteView):
         # only staff users may use 
