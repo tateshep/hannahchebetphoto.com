@@ -182,17 +182,15 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_URL = '/static/'
-
 
 SITE_ID = 1
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'data/')
-MEDIA_URL = '/data/'
 
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home:index'
+
 LOGOUT_REDIRECT_URL = 'home:index'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -201,6 +199,9 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
 AWS_S3_REGION_NAME = 'us-west-2'
+AWS_S3_ENDPOINT_URL = 'hannahchebetphoto.s3-us-west-2.amazonaws.com'
+STATIC_URL = f"https://{AWS_S3_ENDPOINT_URL}/{STATIC_ROOT}/"
+MEDIA_URL = f"https://{AWS_S3_ENDPOINT_URL}/{MEDIA_ROOT}/"
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
