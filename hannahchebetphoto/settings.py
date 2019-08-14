@@ -215,7 +215,7 @@ AWS_S3_REGION_NAME = 'us-west-2'
 
 
 STATIC_URL = "https://hannahchebetphoto.s3.us-west-2.amazonaws.com/static/"
-MEDIA_URL = "https://hannahchebetphoto.s3.us-west-2.amazonaws.com/media/"
+MEDIA_URL = "https://hannahchebetphoto.s3.us-west-2.amazonaws.com/"
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
