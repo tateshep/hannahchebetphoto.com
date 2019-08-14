@@ -136,3 +136,6 @@ data/data/
 data/
 *data
 /data/
+/media/
+media/
+*media
