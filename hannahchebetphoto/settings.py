@@ -195,15 +195,21 @@ LOGOUT_REDIRECT_URL = 'home:index'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
 AWS_S3_REGION_NAME = 'us-west-2'
-AWS_S3_ENDPOINT_URL = 'hannahchebetphoto.s3-us-west-2.amazonaws.com'
+AWS_S3_HOST = 's3.amazonaws.com'
+AWS_S3_ENDPOINT_URL = 'hannahchebetphoto.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = "d2iwh5y2ciwyig.cloudfront.net"
+AWS_LOCATION = 'data'
+
+
 STATIC_URL = f"https://{AWS_S3_ENDPOINT_URL}/{STATIC_ROOT}/"
 MEDIA_URL = f"https://{AWS_S3_ENDPOINT_URL}/{MEDIA_ROOT}/"
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+S3_USE_SIGV4 = True
