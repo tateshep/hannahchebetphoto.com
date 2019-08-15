@@ -4,15 +4,15 @@
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 var cardImage = document.getElementsByClassName('card-image');
 var cardTitle = document.querySelector('.card-title');
-console.log(cardTitle);
+// console.log(cardTitle);
 // var downwardArrows = document.getElementsByClassName('arrow-animation');
 
 function animateArrow() {
-    console.log('start');
+    // console.log('start');
     cardTitle.classList.add('arrow-animation-vertical');
 }
 function stopAnimate() {
-    console.log('stop');
+    // console.log('stop');
     cardTitle.classList.remove('arrow-animation-vertical');
 }
 
