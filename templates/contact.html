@@ -4,12 +4,41 @@
 <div class="container">
     <h1>Contact</h1>
 
-    <form action="" method="POST">
+    <!--  The below can be removed after testing 
+        
+        <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input class="waves-effect waves-dark btn" type="submit" value="Send">
         <a class="waves-effect waves-light btn deep-orange darken-4" href="{% url 'gallery:gallery' %}">Cancel</a>
 
+    </form> -->
+
+    <form action="" method="POST">    
+        {% csrf_token %}
+        <p>
+            <label for="">From Email</label>
+            {{ form.from_email }}
+        </p>
+        <p>
+            <label for="">Subject</label>
+            {{ form.subject }}
+        </p>
+         <p>
+            <label for="">Message</label>
+            {{ form.message }}
+        </p>
+         <p>
+            <label>
+            {{ form.terms_and_conditions }}
+            <span>By checking this box you agree that you have read our <a href="https://app.termly.io/document/privacy-policy/cda6d91a-45ba-4401-b735-9901b4e83337" target="_blank">Privacy Policy</a></span>
+            </label>
+        </p>
+
+        <input class="right waves-effect waves-light btn" type="submit" value="Send Message">
+        <a class="waves-effect waves-light btn right deep-orange darken-4" href="{% url 'gallery:gallery' %}">Cancel</a>
+
+        <br class="clear-fix">
     </form>
 
 </div>

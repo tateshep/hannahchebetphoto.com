@@ -6,9 +6,11 @@ class UserCreationFormEmail(UserCreationForm):
     # Custom form for user creation requiring email
     
     email = forms.EmailField(required = True)
+    terms_and_conditions = forms.BooleanField(widget=forms.CheckboxInput, required=True)
+
     class Meta:
         model = User
-        fields = ("username","email","password1","password2")
+        fields = ("username","email","password1","password2","terms_and_conditions")
 
     def save(self,commit=True):
         user = super(UserCreationFormEmail, self).save(commit=False)
