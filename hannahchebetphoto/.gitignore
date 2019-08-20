@@ -128,3 +128,5 @@ dmypy.json
 /hannahchebetphoto/media
 /hannahchebetphoto/data
 /hannahchebetphoto/db.sqlite3
+
+sendgrid.env

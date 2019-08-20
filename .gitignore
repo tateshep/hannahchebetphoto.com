@@ -141,4 +141,5 @@ data/
 media/
 *media
 
+hannahchebetphoto/sendgrid.env
 sendgrid.env
