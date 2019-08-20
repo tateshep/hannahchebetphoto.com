@@ -377,8 +377,8 @@ nav ul a {
 }
 
 footer {
-    background-color:var(--bg-color);
-    padding-bottom:24px;
+    background-color: var(--bg-color);
+    padding-bottom: 24px;
     
 }
 #materialbox-overlay {
@@ -491,7 +491,6 @@ footer {
     footer {
         bottom:0;
         width: 100%;
-        margin-top:120px;
     }
     
     footer .container {
@@ -504,6 +503,7 @@ footer {
     }
 
     .footer-grid {
+        
         display:grid;
         grid-template-rows: 10vh;
         grid-template-columns:1fr 1fr 1fr;
