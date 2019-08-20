@@ -12,8 +12,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import dj_database_url
-from dotenv import load_dotenv
 import django_heroku
+
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+from dotenv import load_dotenv
+
 load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -194,7 +198,13 @@ LOGIN_REDIRECT_URL = 'home:index'
 
 LOGOUT_REDIRECT_URL = 'home:index'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+if os.getenv("DJANGO_ENV") == 'production':
+    SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+
+if os.getenv("DJANGO_ENV") == 'local':
+    SENDGRID_SANDBOX_MODE_IN_DEBUG = True
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
