@@ -139,3 +139,5 @@ data/
 /media/
 media/
 *media
+
+sendgrid.env
