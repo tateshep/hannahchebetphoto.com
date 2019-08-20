@@ -6,11 +6,11 @@ var arrowBack = document.getElementsByClassName('arrow-back');
 // var forwardArrows = document.getElementsByClassName('arrow-animation');
 
 function animateArrow() {
-    // console.log('start');
+    console.log('start');
     this.firstElementChild.classList.add('arrow-animation-back');
 }
 function stopAnimate() {
-    // console.log('stop');
+    console.log('stop');
     this.firstElementChild.classList.remove('arrow-animation-back');
 }
 
