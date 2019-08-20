@@ -204,7 +204,7 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
 AWS_S3_REGION_NAME = 'us-west-2'
 
 ########
-# the below would be to set up cloudfront access, which was being denied for some reason
+# the below would be to set up cloudfront access
 
 # AWS_S3_HOST = 's3.amazonaws.com'
 # AWS_S3_ENDPOINT_URL = 'hannahchebetphoto.s3.amazonaws.com'

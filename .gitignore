@@ -139,3 +139,6 @@ data/
 /media/
 media/
 *media
+test-sendgrid.py
+
+sendgrid.env
