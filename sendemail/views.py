@@ -25,7 +25,7 @@ def contactView(request):
             message = Mail(
                 from_email = form.cleaned_data['from_email'],
                 to_emails = 'hannahchebetphoto@gmail.com',
-                subject = form.cleaned_data['subject'],
+                subject = 'CONTACT FORM: ' + form.cleaned_data['subject'],
                 html_content = form.cleaned_data['message'],
             )
 
