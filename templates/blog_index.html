@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %}
+{% load thumbnail %}
 
 {% block content %}
 
@@ -10,7 +11,12 @@
         <div class="col s12 m4">
         <div class="card">
             <div class="card-image">
-            <img src="{{ MEDIA_URL }}{{ post.thumbnail_image.photo }}">
+
+            {% thumbnail post.thumbnail_image.photo "1000" crop="center" as im %}
+              <img class="" src="{{ im.url }}"">
+            {% endthumbnail %}
+
+            <!-- <img src="{{ MEDIA_URL }}{{ post.thumbnail_image.photo }}"> -->
             <span class="card-title">{{ post.title }}</span>
             <a href="{% url 'blog:blog_detail' post.id %}" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
             </div>

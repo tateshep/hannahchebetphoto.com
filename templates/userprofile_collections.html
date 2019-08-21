@@ -1,4 +1,6 @@
 {% extends 'base.html' %} 
+{% load thumbnail %}
+
 
 {% block content %}
 
@@ -11,9 +13,11 @@
             <div class="carousel ">
                 {% for image in collection.images.all %}
 
-                    <a class="carousel-item" href="{% url 'gallery:image_detail' image.id%}">
-                        <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
-                    </a>
+                    {% thumbnail image.photo "470x300" crop="center" as im %}
+                            <a class="carousel-item" href="{% url 'gallery:image_detail' image.id%}">
+                                <div class="image-thumbnail" style="background-image:url('{{ im.url }}')"></div>
+                            </a>
+                    {% endthumbnail %}
                     
                 {% endfor %}
             </div>
@@ -24,7 +28,12 @@
             <ul class="collection my-collection">
                 {% for image in collection.images.all %}
                 <li class="collection-item avatar">
-                    <img src="{{ MEDIA_URL }}{{ image.photo}}" alt="" class="circle">
+
+                     {% thumbnail image.photo "100" crop="center" as im %}
+                            <img class="circle" src="{{ im.url }}" alt="{{ Image.title }}">
+                        {% endthumbnail %}
+
+                    <!-- <img src="{{ MEDIA_URL }}{{ image.photo}}" alt="" class="circle"> -->
                     <span class="title">{{ image.title }}</span>
                     <p> <a class="right" href="{% url 'userprofile:download' image.id %}">Download <i style="position:relative;top:6px;"class="material-icons">file_download</i></a></p>
                 </li>

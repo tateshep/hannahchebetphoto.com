@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% load comments %}
 {% load static %}
+{% load thumbnail %}
 {% block content %}
 
 <div class="container">
@@ -12,7 +13,12 @@
     <div class="collection-detail-div">
             {% for image in collection.images.all %}              
                 <a class="" style = '-webkit-transform: translate3d(0px, 0px, 0px)' href="{% url 'gallery:image_detail' image.id%}">
-                  <img class="collection-detail-image" src="{{ MEDIA_URL }}{{ image.photo }}">
+                  
+                  {% thumbnail image.photo "650" crop="center" as im %}
+                     <img class="collection-detail-image" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
+                  {% endthumbnail %}
+
+                  <!-- <img class="collection-detail-image" src="{{ MEDIA_URL }}{{ image.photo }}"> -->
                 </a>
             {% endfor %}
     </div>

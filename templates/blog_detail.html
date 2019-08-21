@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% load comments %}
 {% load static %}
+{% load thumbnail %}
 {% block content %}
 
 <div class="container">
@@ -10,7 +11,11 @@
     <div class="col s12 m12">
       <div class="card">
         <div class="card-image">
-          <img class="materialboxed"src="{{ MEDIA_URL }}{{ blogpost.thumbnail_image.photo }}">
+
+          {% thumbnail blogpost.thumbnail_image.photo "1000" crop="center" as im %}
+              <img class="materialboxed" src="{{ im.url }}"">
+          {% endthumbnail %}
+
           <a  href="#blog-content" class="card-title"><i class="material-icons" style="font-size: 2em;" style="position:relative;top:6px;">arrow_downward</i> </a>
         </div>
         <div id="blog-content" class="card-content blogpost-p">
@@ -19,7 +24,11 @@
             
             <div class="blogpost-images">
                {% for image in blogpost.images.all %}
-               <img class="collection-detail-image materialboxed" src="{{ MEDIA_URL }}{{ image.photo }}" alt="">
+
+               {% thumbnail image.photo "650x650" crop="center" as im %}
+                    <img class="collection-detail-image materialboxed" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
+                {% endthumbnail %}
+               <!-- <img class="collection-detail-image materialboxed" src="{{ MEDIA_URL }}{{ image.photo }}" alt=""> -->
                 {% endfor %}
             </div>
          
