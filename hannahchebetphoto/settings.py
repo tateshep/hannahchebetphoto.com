@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'sendemail.apps.SendemailConfig',
     'blog.apps.BlogConfig',
     'django_comments',
+    'sorl.thumbnail',
     'django.contrib.sites',
     'storages',
 
@@ -163,27 +164,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-
-# none of the below seems to be working
-
-# if os.getenv.get('DJANGO_ENV') == 'production':
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-    # STATIC_URL = '/static/'
-#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-#     # Does not work in the local environment
-#         os.path.join(BASE_DIR, "static"),
-#     ]
-
-# if os.getenv("DJANGO_ENV") == 'local':
-#     print('getenv working')
-#     print(os.getenv("DJANGO_ENV"))
-#     STATIC_URL = '/static/'
-#     # STATIC_ROOT = 'static'
-#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
