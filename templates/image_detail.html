@@ -5,35 +5,32 @@
 {% block content %}
 
 <div class="container">
-
-    <p class="image-detail-collection-list">
-     {% for collection in object.collection_set.all %}
-        {% if collection.showcase_gallery %}
-        <a href="{% url 'gallery:collection_detail' collection.id %}"> | {{ collection.title }}</a>
+      <p class="image-detail-collection-list">
+      {% for collection in object.collection_set.all %}
+          {% if collection.showcase_gallery %}
+          <a href="{% url 'gallery:collection_detail' collection.id %}"> | {{ collection.title }}</a>
+          {% endif %}
+        {% endfor%} 
+        
+        {% if user.is_authenticated %}
+          <a href="{% url 'userprofile:my_collections' %}"> | My Collections</a>
         {% endif %}
-      {% endfor%} 
-      
-      {% if user.is_authenticated %}
-        <a href="{% url 'userprofile:my_collections' %}"> | My Collections</a>
+      </p>
+
+  <div class='container'>
+      {% thumbnail image.photo "x600" crop="center" as im %}
+          <img class="z-depth-4 img-detail materialboxed" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
+      {% endthumbnail %}
+      <!-- <img class="z-depth-4 img-detail materialboxed" src="{{ MEDIA_URL }}{{ image.photo}}" alt="{{ Image.title }}"> -->
+  </div>
+      <p>Title: {{ image.title }}</p>
+      <p>Added by: {{ image.author }}</p>
+      <p>
+      {% if request.user.is_superuser %}
+          <a class="waves-effect waves-light btn" href="{% url 'gallery:image_update' image.id %}">Update image</a>
+          <a class="waves-effect waves-light deep-orange darken-4 btn" href="{% url 'gallery:delete_image' image.id %}">Delete image</a>
       {% endif %}
-    </p>
-
-     {% thumbnail image.photo "650x650" crop="center" as im %}
-        <img class="z-depth-4 img-detail materialboxed" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
-     {% endthumbnail %}
-    <!-- <img class="z-depth-4 img-detail materialboxed" src="{{ MEDIA_URL }}{{ image.photo}}" alt="{{ Image.title }}"> -->
-    <p>Title: {{ image.title }}</p>
-    <p>Added by: {{ image.author }}</p>
-    <p>
-    {% if request.user.is_superuser %}
-        <a class="waves-effect waves-light btn" href="{% url 'gallery:image_update' image.id %}">Update image</a>
-        <a class="waves-effect waves-light deep-orange darken-4 btn" href="{% url 'gallery:delete_image' image.id %}">Delete image</a>
-    {% endif %}
-    
-   
-
-    </p>
-
+      </p>
     <h1>Comments</h1>
       {% get_comment_count for image as comment_count %}
       <p> {{ comment_count }} comment{{ comment_count|pluralize }}</p>

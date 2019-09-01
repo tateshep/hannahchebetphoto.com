@@ -25,8 +25,8 @@
             <div class="blogpost-images">
                {% for image in blogpost.images.all %}
 
-               {% thumbnail image.photo "650x650" crop="center" as im %}
-                    <img class="collection-detail-image materialboxed" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
+               {% thumbnail image.photo "650" crop="center" as im %}
+                    <img class="collection-detail-image" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
                 {% endthumbnail %}
                <!-- <img class="collection-detail-image materialboxed" src="{{ MEDIA_URL }}{{ image.photo }}" alt=""> -->
                 {% endfor %}

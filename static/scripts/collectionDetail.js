@@ -8,7 +8,9 @@ let resetAmount = 1;
 
 function myEvents (imageThumbs) {
         for (i=0;i<imageThumbs.length;i++) {
-
+            imageThumbs[i].addEventListener("click",function(){
+                console.log("clicked");
+            })
             imageThumbs[i].addEventListener("mouseenter",function(){
                 this.parentElement.style.zIndex="2";
                 this.style.transform = `scale(${scaleAmount},${scaleAmount})`;
