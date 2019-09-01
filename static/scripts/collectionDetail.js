@@ -2,15 +2,14 @@
 
 
 let imageThumbs = document.getElementsByClassName('collection-detail-image');
+let myModal = document.getElementById('myModal');
 let imageThumbsArray= [];
 let scaleAmount = 1.30;
 let resetAmount = 1;
 
 function myEvents (imageThumbs) {
         for (i=0;i<imageThumbs.length;i++) {
-            imageThumbs[i].addEventListener("click",function(){
-                console.log("clicked");
-            })
+            imageThumbs[i].addEventListener("click", openModal );
             imageThumbs[i].addEventListener("mouseenter",function(){
                 this.parentElement.style.zIndex="2";
                 this.style.transform = `scale(${scaleAmount},${scaleAmount})`;
@@ -23,5 +22,13 @@ function myEvents (imageThumbs) {
             })
     }
 };
+
+
+function openModal () {
+    console.log("clicked");
+    myModal.style.display = "block";
+
+}
+
 myEvents(imageThumbs);
 
