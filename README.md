@@ -1,6 +1,7 @@
 # Hannah Chebet Photo
 *Photography portfolio with Django*
 
+
 ## Overview
 
 This photography portfolio and blog was created using Photova, a Django based photography portfolio template. https://github.com/tateshep/Photova
