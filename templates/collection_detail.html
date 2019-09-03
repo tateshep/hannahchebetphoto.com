@@ -4,6 +4,9 @@
 {% load thumbnail %}
 {% block content %}
 
+<!-- Lightbox Modal -->
+
+<!-- End Lightbox Modal-->
 <div class="container">
 
         <a class="arrow-back" href="{% url 'gallery:gallery'%}"><i class="material-icons" style="position:relative;top:6px;">arrow_back</i>Gallery</a>
@@ -12,8 +15,10 @@
 
     <div class="collection-detail-div">
             {% for image in collection.images.all %}              
-                <a class="" style = '-webkit-transform: translate3d(0px, 0px, 0px)' href="{% url 'gallery:image_detail' image.id%}">
-                  
+                <a class="" style = '-webkit-transform: translate3d(0px, 0px, 0px)' >
+                  <!-- href="{% url 'gallery:image_detail' image.id%}" old href for the above link to take to image detail. Replaced with lightbox gallery -->
+
+
                   {% thumbnail image.photo "650" crop="center" as im %}
                      <img class="collection-detail-image" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
                   {% endthumbnail %}

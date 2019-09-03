@@ -32,6 +32,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+# Debug logic, true in local, false in production
 if os.getenv("DJANGO_ENV") == 'production':
     DEBUG = False
 
@@ -178,6 +179,7 @@ LOGIN_REDIRECT_URL = 'home:index'
 
 LOGOUT_REDIRECT_URL = 'home:index'
 
+# Sendgrid Settings
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 if os.getenv("DJANGO_ENV") == 'production':
@@ -186,12 +188,24 @@ if os.getenv("DJANGO_ENV") == 'production':
 if os.getenv("DJANGO_ENV") == 'local':
     SENDGRID_SANDBOX_MODE_IN_DEBUG = True
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
-AWS_S3_REGION_NAME = 'us-west-2'
+# Static files and Media files settings, AWS if production, local if 'local'
+if os.getenv("DJANGO_ENV") == 'production':
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
+    AWS_S3_REGION_NAME = 'us-west-2'
+    STATIC_URL = "https://hannahchebetphoto.s3.us-west-2.amazonaws.com/static/"
+    MEDIA_URL = "https://hannahchebetphoto.s3.us-west-2.amazonaws.com/"
+
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = None
+    S3_USE_SIGV4 = True
+
+if os.getenv("DJANGO_ENV") == 'local':
+    STATIC_URL = '/static/'
+    MEDIA_URL = '/media/'
 
 ########
 # the below would be to set up cloudfront access, which was being denied for some reason
@@ -203,10 +217,3 @@ AWS_S3_REGION_NAME = 'us-west-2'
 # STATIC_URL = f"https://{AWS_S3_ENDPOINT_URL}/{STATIC_ROOT}/"
 # MEDIA_URL = f"https://{AWS_S3_ENDPOINT_URL}/{MEDIA_ROOT}/"
 
-
-STATIC_URL = "https://hannahchebetphoto.s3.us-west-2.amazonaws.com/static/"
-MEDIA_URL = "https://hannahchebetphoto.s3.us-west-2.amazonaws.com/"
-
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-S3_USE_SIGV4 = True
