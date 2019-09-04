@@ -270,18 +270,16 @@ textarea {
     height: 25vh;
     margin-top:10px;
     margin-bottom:10px;
-    margin-left:6px;
-    margin-right:6px;
+
     width:auto;
     transition: transform 0.25s;
     overflow: visible;
-    /* border: 3px solid var(--bg-color); */
     
 }
 .collection-detail-image:hover {
     overflow: visible;
     /* box-shadow: 0px 0px 40px #303030; */
-    border: 3px solid transparent;
+    /* border: 3px solid transparent; */
 }
 .img-detail {
     max-width: 100%;

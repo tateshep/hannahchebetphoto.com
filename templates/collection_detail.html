@@ -5,8 +5,38 @@
 {% block content %}
 
 <!-- Lightbox Modal -->
+    <div id="myModal" class="lightbox-modal">
+      <span class="close-btn">&times;</span>
 
-<!-- End Lightbox Modal-->
+      <div class="modal-content">
+      {% for image in collection.images.all %}              
+
+        <div id="slides-container" class="container">
+          <div class="mySlides">
+            <div class="numbertext"></div>
+            {% thumbnail image.photo "700" crop="center" as im %}
+                <img class="responsive-img materialboxed" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
+            {% endthumbnail %}
+          </div>
+        
+        </div>
+      {% endfor %}
+
+        <a class="next-btn" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev-btn" onclick="plusSlides(-1)">&#10094;</a>
+        <div class="thumnail-conrols">
+        {% for image in collection.images.all %}  
+          {% thumbnail image.photo "x100" crop="center" as im %}  
+          <img class="thumbnail-controls-images" onclick="currentSlide(parseInt(this.id))" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
+          {% endthumbnail %}
+        {% endfor %}
+        </div>
+       </div> 
+     </div>  
+<!-- End Lightbox Modal -->
+
+
+
 <div class="container">
 
         <a class="arrow-back" href="{% url 'gallery:gallery'%}"><i class="material-icons" style="position:relative;top:6px;">arrow_back</i>Gallery</a>
@@ -14,17 +44,18 @@
             <p class="border-left-p p-large">{{ collection.description }}</p>
 
     <div class="collection-detail-div">
-            {% for image in collection.images.all %}              
+            {% for image in collection.images.all %}
+                          
                 <a class="" style = '-webkit-transform: translate3d(0px, 0px, 0px)' >
                   <!-- href="{% url 'gallery:image_detail' image.id%}" old href for the above link to take to image detail. Replaced with lightbox gallery -->
-
-
+                <div class="open-modal-img">
                   {% thumbnail image.photo "650" crop="center" as im %}
-                     <img class="collection-detail-image" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
+                     <img class="collection-detail-image" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}" onclick="currentSlide(parseInt(this.id))">
                   {% endthumbnail %}
-
+                </div>
                   <!-- <img class="collection-detail-image" src="{{ MEDIA_URL }}{{ image.photo }}"> -->
                 </a>
+            
             {% endfor %}
     </div>
         {% if request.user.is_superuser %}
@@ -79,4 +110,12 @@
 {% block js %}
         <script src="{% static '/scripts/collectionDetail.js' %}"></script>
         <script src="{% static '/scripts/arrowAnimationBack.js' %}"></script>
+   
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.materialboxed');
+            var instances = M.Materialbox.init(elems);
+          });
+        </script>
+
 {% endblock%}

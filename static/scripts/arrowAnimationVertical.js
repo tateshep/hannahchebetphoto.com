@@ -4,7 +4,7 @@
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 var cardImage = document.getElementsByClassName('card-image');
 var cardTitle = document.querySelector('.card-title');
-console.log(cardTitle);
+// console.log(cardTitle);
 // var downwardArrows = document.getElementsByClassName('arrow-animation');
 
 function animateArrow() {

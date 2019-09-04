@@ -14,11 +14,11 @@
             <a href="{% url 'gallery:collection_detail' collection.id %}"><h3 class="collection-title-animation collection-title">{{ collection.title | upper }} <i class="material-icons" style="position:relative;top:6px;">arrow_forward</i></h3></a>
                 <div class="carousel">
                     {% for image in collection.images.all %}
+                    <a class="carousel-item" href="{% url 'gallery:collection_detail' collection.id %}">
                         {% thumbnail image.photo "470x300" crop="center" as im %}
-                            <a class="carousel-item" href="{% url 'gallery:image_detail' image.id%}">
-                                <div class="image-thumbnail" style="background-image:url('{{ im.url }}')"></div>
-                            </a>
+                            <div class="image-thumbnail" style="background-image:url('{{ im.url }}')"></div>
                         {% endthumbnail %}
+                    </a>
                         
                     {% endfor %}
                 </div>
