@@ -14,8 +14,8 @@
         <div id="slides-container" class="container">
           <div class="mySlides">
             <div class="numbertext"></div>
-            {% thumbnail image.photo "700" crop="center" as im %}
-                <img class="responsive-img materialboxed" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
+            {% thumbnail image.photo "x600" crop="center" as im %}
+                <img class="responsive-img materialboxed z-depth-2" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
             {% endthumbnail %}
           </div>
         
@@ -24,9 +24,9 @@
 
         <a class="next-btn" onclick="plusSlides(1)">&#10095;</a>
         <a class="prev-btn" onclick="plusSlides(-1)">&#10094;</a>
-        <div class="thumnail-conrols">
+        <div class="thumbnail-controls">
         {% for image in collection.images.all %}  
-          {% thumbnail image.photo "x100" crop="center" as im %}  
+          {% thumbnail image.photo "x75" crop="center" as im %}  
           <img class="thumbnail-controls-images" onclick="currentSlide(parseInt(this.id))" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ Image.title }}">
           {% endthumbnail %}
         {% endfor %}
@@ -34,8 +34,6 @@
        </div> 
      </div>  
 <!-- End Lightbox Modal -->
-
-
 
 <div class="container">
 
