@@ -12,7 +12,7 @@
     height:100%;
     overflow: auto;
     background-color:var(--bg-color);
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
 }
 
@@ -25,7 +25,7 @@
     width: 90%;
     /* height: 80%; */
     /* max-width: 1200px; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
 }
 .responsive-img {
