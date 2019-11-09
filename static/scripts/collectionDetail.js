@@ -88,7 +88,7 @@ function openModal () {
 }
 function closeModal() {
     lightboxModal.style.display="none";
-    if (windowWidth >= 1100) {
+    if (windowWidth >= 993) {
         navBar.style.display = 'inherit';
     }
 }
