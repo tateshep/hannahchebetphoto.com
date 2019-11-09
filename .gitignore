@@ -108,6 +108,7 @@ celerybeat-schedule
 env/
 venv/
 ENV/
+ENVhannahchebetphoto
 env.bak/
 venv.bak/
 shell/
