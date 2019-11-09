@@ -6,6 +6,7 @@ Light box modal js
 */ 
 
 var navBar = document.querySelector('.desktop-nav');
+const windowWidth = window.innerWidth;
 var lightboxModal = document.querySelector('.lightbox-modal');
 var closeBtn = document.querySelector('.close-btn');
 var thumbnailControlsImages = Array.from(document.getElementsByClassName("thumbnail-controls-images"));
@@ -87,7 +88,9 @@ function openModal () {
 }
 function closeModal() {
     lightboxModal.style.display="none";
-    navBar.style.display = 'inherit';
+    if (windowWidth >= 993) {
+        navBar.style.display = 'inherit';
+    }
 }
 
 closeBtn.addEventListener('click',closeModal);
