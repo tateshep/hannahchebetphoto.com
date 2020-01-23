@@ -45,7 +45,8 @@ ALLOWED_HOSTS = [
     '0.0.0.0',
     'localhost',
     '.herokuapp.com',
-    's3.amazonaws.com'
+    's3.amazonaws.com',
+    'www.hannahchebetphoto.com'
 ]
 
 # Application definition
@@ -100,17 +101,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'hannahchebetphoto.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -206,14 +196,3 @@ if os.getenv("DJANGO_ENV") == 'production':
 if os.getenv("DJANGO_ENV") == 'local':
     STATIC_URL = '/static/'
     MEDIA_URL = '/data/'
-
-########
-# the below would be to set up cloudfront access, which was being denied for some reason
-
-# AWS_S3_HOST = 's3.amazonaws.com'
-# AWS_S3_ENDPOINT_URL = 'hannahchebetphoto.s3.amazonaws.com'
-# AWS_S3_CUSTOM_DOMAIN = "https://hannahchebetphoto.s3.us-west-2.amazonaws.com"
-# AWS_LOCATION = 'data'
-# STATIC_URL = f"https://{AWS_S3_ENDPOINT_URL}/{STATIC_ROOT}/"
-# MEDIA_URL = f"https://{AWS_S3_ENDPOINT_URL}/{MEDIA_ROOT}/"
-
