@@ -157,34 +157,30 @@ footer {
 .container {
     margin-bottom:40px;
 }
-.comment-list {
-    padding: 12px;
-    margin: 12px;
-}
 
-.blog-post-div {
-    margin-top:1.5em;
-}
-.blogpost-p {
-    font-size:1.25em;
-    line-height: 1.5;
-}
 .card-action-link {
     color:var(--font-color);
 }
 
-.admin-container {
-    /* margin-left:40%; */
-    width:100%;
-}
-
 .index-grid-img {
-    height:500px;
+    height:250px;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size:cover;
-
 }
+
+@media only screen and (min-width:400px){
+    .index-grid-img {
+        height:300px;
+    }
+}
+
+@media only screen and (min-width:545px){
+    .index-grid-img {
+        height:500px;
+    }
+}
+
 .index-grid-1-1 {
     padding-bottom: 30px;
 }
