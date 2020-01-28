@@ -1,0 +1,71 @@
+
+/* materialize class, used in mycollections template*/
+@media only screen and (min-width:768px){
+    .collection {
+        width:50%;
+    }
+    .my-collections-div {
+        display:flex;
+        justify-content: center;
+    }
+}
+
+.collection-item {
+    background-color:var(--bg-color) !important;
+}
+.collection-item span {
+    color:var(--heading-color) ;
+}
+
+
+.collection-detail-div {
+    margin-top:24px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+    margin-bottom: 18px;
+}
+.collection-detail-div p {
+    margin-bottom:24px;
+}
+
+.collection-title {
+    font-size:2em;
+    color:var(--heading-color);
+    font-weight: 100;
+    border-left: 3px solid var(--heading-color);
+    padding:24px 24px;
+    transition: all .15s;
+}
+.collection-title:hover {
+    color:var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+}
+.image-detail-collection-list {
+    margin:12px;
+}
+.image-thumbnail {
+    height:500px;
+    width:500px;
+    background-size: 500px auto;
+    background-repeat: no-repeat;
+    /* display: inline; */
+}
+.collection-detail-image {
+    height: 25vh;
+    margin-top:10px;
+    margin-bottom:10px;
+
+    width:auto;
+    transition: transform 0.25s;
+    overflow: visible;
+    
+}
+.collection-detail-image:hover {
+    overflow: visible;
+}
+.img-detail {
+    max-width: 100%;
+    margin-bottom: 24px;
+}
