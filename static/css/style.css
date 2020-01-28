@@ -120,26 +120,6 @@ textarea {
     height:100vh;
   }
 
-.hero-logo img {
-    top: -800px;
-    width: auto;
-    z-index: 3;
-}
-
-@-webkit-keyframes slideintop { from { top: -1600px} to { top: -800px }  }
-    @keyframes slideintop { from { top: -1600px} to { top: -800px }  }
-.hero-logo {
-   display: flex;
-   height: 0;
-   justify-content: center;
-}
-.hero-logo img{
-    width:auto;
-    height:40vh;
-    position: relative;
-    animation: 3s slideintop 0s ease-in-out;
-
-}
 .border-left-p {
     border-left: 3px solid var(--heading-color);
     padding-left:18px;
