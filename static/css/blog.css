@@ -1,0 +1,20 @@
+
+.blogpost-images {
+    margin-top:24px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+.comment-list {
+    padding: 12px;
+    margin: 12px;
+}
+
+.blog-post-div {
+    margin-top:1.5em;
+}
+.blogpost-p {
+    font-size:1.25em;
+    line-height: 1.5;
+}

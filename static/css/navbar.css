@@ -1,0 +1,61 @@
+.brand-logo {
+    font-weight: 100;
+    margin-left:36px;
+    position:relative;
+    top: -10px;
+    /* align-items: center; */
+}
+/* .brand-logo img {
+    margin-top:10px;
+    margin-right:10px;
+} */
+
+.collapsible-header {
+    background-color: var(--bg-color);
+}
+
+
+nav {
+    background-color: var(--bg-color);
+}
+nav ul a {
+    color:var(--heading-color);
+}
+.mobile-logo {
+    height:10vh;
+}
+.mobile-nav fixed {
+    background-color: var(--bg-color);
+    z-index:4;
+}
+.sidenav li>a {
+    color:var(--heading-color);
+}
+.sidenav {
+    color:var(--heading-color);
+}
+.sidenav-trigger {
+    color:var(--heading-color);
+}
+.mobile-header {
+    display:inline;
+    color:var(--heading-color);
+    font-weight: 100;
+}
+#slide-out {
+    background-color: var(--bg-color);
+
+}
+
+
+.nav-wrapper {
+    background-color: var(--bg-color);
+}
+.nav-extended {
+    background-color: var(--bg-color);
+}
+
+.navbar-link {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--heading-color);
+}

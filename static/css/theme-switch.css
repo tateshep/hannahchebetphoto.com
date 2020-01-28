@@ -1,0 +1,72 @@
+/********* Dark Light Toggle ***********/
+#theme-switch-section {
+    position: fixed;
+    z-index:3;
+    top:90%;
+    left:75%;
+}
+@media only screen and (min-width:500px){
+    #theme-switch-section {
+        left:85%;
+    }
+}
+@media only screen and (min-width:1000px){
+    #theme-switch-section {
+        left:90%;
+    }
+}
+.theme-switch {
+    display: inline-block;
+    height:34px;
+    position:relative;
+    top:10px;
+    width:60px;
+  }
+  
+  .theme-switch input {
+    display:none;
+  }
+
+  #theme-text {
+      color:var(--heading-color);
+  }
+  .my-slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0 ;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+  .my-slider:before {
+    background-color: #fff;
+    bottom: 4 px;
+    content: "";
+    height: 26px;
+    left:4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+  }
+  
+  input:checked + .my-slider {
+    background-color: #000;
+  }
+  
+  input:checked + .my-slider:before {
+    transform: translateX(26px);
+  }
+  
+  .my-slider.round {
+    border-radius:34px;
+  }
+  .my-slider.round:before {
+    border-radius:50%;
+    margin-top:7%;
+  }
+  .mobile-toggle {
+      margin-left:24px;
+  }
+/********* End Dark Light Toggle ***********/

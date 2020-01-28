@@ -1,0 +1,26 @@
+
+@-webkit-keyframes slidearrow { from { left: 0px} to { left: 24px; }  }
+@keyframes slidearrow { from { left: 0px} to { left: 24px; }  }
+
+.arrow-animation {
+animation: slidearrow 0.75s ease-in-out 0s infinite alternate;
+}
+
+@-webkit-keyframes arrowback { from { left: 0px} to { left: -24px; }  }
+@keyframes arrowback { from { left: 0px} to { left: -24px; }  }
+
+.arrow-animation-back {
+animation: arrowback 0.75s ease-in-out 0s infinite alternate;
+}
+@-webkit-keyframes arrowvert { from { bottom: 0px} to { bottom: 24px; }  }
+@keyframes arrowvert { from { bottom: 0px} to { bottom: 24px; }  }
+
+.arrow-animation-vertical {
+animation: arrowvert 0.75s ease-in-out 0s infinite alternate;
+}
+.arrow-back {
+font-size:1.4em;
+font-weight: 100;
+position:relative;
+top:12px;
+}
