@@ -30,14 +30,14 @@
 
 
   </head>
-  
+
 <body>
 
 <div class="mobile-nav fixed">
   <nav style="display:flex;">
   <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <div >
-      <h4 style="text-align:center" class="mobile-header">HANNAH CHEBET</h4>  
+      <h4 style="text-align:center" class="mobile-header">HANNAH CHEBET</h4>
     </div>
   </nav>
 
@@ -46,13 +46,13 @@
       <div class="">
        <a href="{% url 'home:index'%}">
         <h3 class="mobile-header">HANNAH CHEBET PHOTO</h3>
-       </a> 
+       </a>
       </div>
     </div></li>
     {% if user.is_authenticated %}
     <li><a href="#name"><span class="name">Welcome back {{ user }}</span></a></li>
     {% endif %}
-  
+
     <li><div class="divider"></div></li>
     <li><a class="waves-effect" href="{% url 'gallery:gallery' %}">View Gallery</a></li>
     <li><a class="waves-effect " href="{% url 'blog:index' %}">Blog</a></li>
@@ -84,7 +84,7 @@
       </li>
       {% endif %}
   </ul>
-        
+
 </div>
 
   <div class="navbar-fixed desktop-nav">
@@ -92,21 +92,21 @@
         <div class="nav-wrapper">
             <a class="brand-logo" href="{% url 'home:index'%}"><h4>HANNAH CHEBET</h4></a>
             <!-- {% if user.is_authenticated %}
-            <h4 class="welcome-header hide-on-med-and-down">Welcome back {{ user }}</h4> 
+            <h4 class="welcome-header hide-on-med-and-down">Welcome back {{ user }}</h4>
             {% endif %} -->
               <ul id="" class="right">
-                    
+
                 <li>
                   <a class="navbar-link " href="{% url 'gallery:gallery' %}">View Gallery</a>
                 </li>
                 <li>
                   <a class="navbar-link " href="{% url 'blog:index' %}">Blog</a>
                 </li>
-                <li>
+                <!-- <li>
                   <a class="navbar-link " href="{% url 'sendemail:contact' %}">Contact</a>
-                </li>
+                </li> -->
                 {% if user.is_authenticated %}
-                  
+
                 <li>
                   <a class="navbar-link " href="{% url 'userprofile:my_collections' %}">View My Collections</a>
                 </li>
@@ -131,7 +131,7 @@
                 {% endif %}
               </ul>
           </div>
-        
+
     </nav>
   </div>
             {% block content %}
@@ -159,25 +159,25 @@
               </ul>
             </section>
 
-            <section class="footer-grid-section-2"> 
+            <section class="footer-grid-section-2">
             <h1>Connect</h1>
-
-              <ul>
-                <li><a href="{% url 'sendemail:contact' %}">Contact</a></li>
-                <li><a href="{% url 'blog:index' %}">Blog</a></li>
-              </ul>
-            </section>
-
-            <section class="footer-grid-section-3">
-            <h1>Social</h1>
 
               <ul>
                 <li><a href="https://www.facebook.com/pages/category/Photographer/Hannah-Chebet-Photo-323137791709195/">Facebook</a></li>
                 <li><a href="https://www.instagram.com/hannahchebetphoto/?hl=en">Instagram</a></li>
+                <!-- <li><a href="{% url 'sendemail:contact' %}">Contact</a></li>
+                <li><a href="{% url 'blog:index' %}">Blog</a></li> -->
               </ul>
             </section>
+
+            <!-- <section class="footer-grid-section-3">
+            <h1>Social</h1>
+
+              <ul>
+              </ul>
+            </section> -->
           </div>
-        
+
         </div>
       </footer>
 
@@ -189,7 +189,7 @@
         var elems = document.querySelectorAll('.sidenav');
         var instances = M.Sidenav.init(elems);
       });
-    
+
     </script>
 
     <script>
