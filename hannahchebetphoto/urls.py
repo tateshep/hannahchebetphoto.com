@@ -24,7 +24,7 @@ urlpatterns = [
     path('gallery/',include('gallery.urls')),
     path('userprofil/',include('django.contrib.auth.urls')),
     path('userprofile/',include('userprofile.urls')),
-    path('sendemail/',include('sendemail.urls')),
+    # path('sendemail/',include('sendemail.urls')), Turning this off to hopefully hide the contact form and prevent spam
     path('blog/',include('blog.urls')),
-    path('comments/',include('django_comments.urls')),
+    # path('comments/',include('django_comments.urls')),
 ] + static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)
